@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student's Translator</title>
+    <style>
+      body  {
+      background: transparent;  
+      background: -webkit-linear-gradient(to bottom, rgba(24,54,85,1.00), transparent 25%); 
+      background: linear-gradient(to bottom, rgba(24,54,85,1.00), transparent 25%); 
+      }
+      .answer{
+        margin-left: 10px;
+        font-size: 20px;
+      }
+      .content{
+        display: block;
+        width: 100%;
+        height: 500px;
+        text-align: center;
+      }
+
+      .description{
+        display: inline-flex;
+        width: 100%;
+        text-align: center;
+      }
+      .description div{
+        margin: auto;
+        width: 100%;
+        
+      }
+      div h3{
+        color:#000000;
+        font-size: 20px;
+      }
+      .header{
+        display: inline-flex;
+        width: 100%;
+        text-align: center;
+      }
+      .header div{
+        height: 150px;
+        margin-right: auto;
+        margin-left: auto;
+        width: 100%;
+        
+      }
+      div h2{
+        color:#000000;
+        font-size: 80px;
+      }
+      
+
+      .container{
+        display: block;
+        width: 100%;
+        margin-top: 20px;
+        height: 500px;
+      }
+      .container div{
+        margin: auto;
+        width: 50%;
+        border: 3px solid dodgerblue;
+        height : 90%;
+        text-align: left;
+      }
+      
+       
+    </style>
+  </head>
+  <body>
+    <form
+        method="post"
+        ,
+        action="http://localhost:5000/extract"
+        ,
+        enctype="multipart/form-data"
+        >
+    
+    
+   
+    <div class="header">
+      <div>
+        <h2>Student's Translator</h2>
+      </div>
+    </div>
+    <div class="description">
+      <div>
+        <h3>As an international student, I found the study abroad or study the material with second language is very difficult since there are termilogogy and language barrier that I have to overcome first before actually solve the problem or gain knowledge.
+          I created Student's Translator for providing a better quality of eduction among people with different language.This tool is helping student translate any image with text of the language that they do not understand.</h3>
+      </div>
+    </div>
+    <div class="content">
+      
+      <input type="file" , name="filename">
+      <input type="search" name="searchbox" value ="Choose your language">
+      <input type="submit" value="Translate">
+      
+      <div class ="container">
+        <div class="answer">
+        </div>
+      </div>
+    </div>
+    
+   
+    <script>
+      let dataFromApi = JSON.parse({{jsonData|tojson}})
+      console.log(dataFromApi);
+      document.querySelector(".answer").innerHTML = dataFromApi.text
+    </script>
+  </body>
+  
+</html>
